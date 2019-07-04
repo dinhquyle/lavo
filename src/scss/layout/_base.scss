@@ -1,0 +1,390 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: sanBold;
+  src: url(../font/SF-UI-Display-Bold.otf);
+}
+@font-face {
+  font-family: sanLight;
+  src: url(../font/SF-UI-Display-Light.otf);
+}
+@font-face {
+  font-family: sanMedium;
+  src: url(../font/SF-UI-Display-Medium.otf);
+}
+@font-face {
+  font-family: sanRegular;
+  src: url(../font/SF-UI-Display-Regular.otf);
+}
+@font-face {
+  font-family: sanSemibold;
+  src: url(../font/SF-UI-Display-Semibold.otf);
+}
+@font-face {
+  font-family: sanThin;
+  src: url(../font/SF-UI-Display-Thin.otf);
+}
+
+/*-----------------------------------------------------------
+clearfix
+------------------------------------------------------------*/
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  line-height: 0;
+}
+.clearfix {display: inline-block;}
+/* exlude MacIE5 \*/
+* html .clearfix {height: 1%}
+.clearfix {display: block;}
+/* end MacIE5 */
+/*-----------------------------------------------------------
+reset
+------------------------------------------------------------*/
+p {
+  margin: 0;
+  padding: 0;
+}
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+input, textarea {
+  margin: 0;
+  font-size: 100%;
+  resize: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 100%;
+}
+dl, dt, dd, th, td {
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  /*font-size: 100%;*/
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+img {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: 0;
+  max-width:100%;
+  height:auto;
+}
+table img {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: 0;
+}
+article, aside, dialog, figure, footer, header, hgroup, nav, section {display: block;}
+nav ul {list-style: none;}
+*, *:before, *:after {
+  @include add_prefix(box-sizing, border-box);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*:focus {outline: none!important;}
+label, select, button {cursor: pointer;}
+
+// Remove select appearance for IE
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  select::-ms-expand {
+    display: none;
+  }
+}
+@media screen\0 {
+  select::-ms-expand {
+    display: none;
+  }
+}
+
+/*-----------------------------------------------------------
+Link
+------------------------------------------------------------*/
+a {
+  outline: none;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  @include PC {
+    &:hover {
+      text-decoration: none;
+      color: #aaa;
+      opacity: 0.5;
+    }
+  }
+}
+a:link, a:visited, a:active {
+  color: $colortext;
+  text-decoration: none;
+}
+/*-----------------------------------------------------------
+FONT family
+------------------------------------------------------------*/
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  white-space: nowrap;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar. */
+}
+.txtLinkCom{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  text-indent: -9999px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  @include min-screen(768px) {
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+}
+/*-----------------------------------------------------------
+Body
+-------------------------------------------------------------*/
+html {
+  font-size: 62.5%;
+  @include add_prefix(text-size-adjust, 100%);
+  @include add_prefix(font-feature-settings, "palt");
+}
+body {
+  width: 100%;
+  color: $colortext;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  font-family: "sanLight", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  @include font-size(16);
+  height: 100%;
+  word-break: break-word;
+  @include max-screen(767px) {
+    font-size: 14px;
+    padding-top: 50px;
+  }
+}
+*{
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/*-----------------------------------------------------------
+Container
+------------------------------------------------------------*/
+.container {
+  max-width: $widthcm;
+  margin: 0 auto;
+}
+/*-----------------------------------------------------------
+common
+------------------------------------------------------------*/
+.sp, .SP {
+  @media (min-width: 768px) and (orientation: landscape),
+    (min-width: 768px) and (orientation: portrait) {display: none!important;}
+}
+
+.pc, .PC {
+  @media (max-width: 767px) and (orientation: landscape),
+    (max-width: 767px) and (orientation: portrait) {display: none!important;}
+}
+
+.wcm {
+  width: $widthcm;
+  margin:auto;
+}
+/*-----------------------------------------------------------
+Some stuff from bootstrap
+------------------------------------------------------------*/
+.fade { opacity: 0; @include transition_c(opacity 0.15s linear); }
+.fade.in { opacity: 1; }
+.collapse { display: none; }
+.collapse.in { display: block; }
+tr.collapse.in { display: table-row; }
+tbody.collapse.in { display: table-row-group; }
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include add_prefix(transition-property, "height, visibility");
+  @include add_prefix(transition-duration, 0.35s);
+  @include add_prefix(transition-timing-function, ease);
+}
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  .close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    &:hover,
+    &:focus {
+      color: #000000;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+    }
+  }
+  button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+  }
+}
+.modal.fade .modal-dialog {
+  @include transform_c(translate(0, -25%));
+  @include transition_c(transform 0.3s ease-out);
+}
+.modal.in .modal-dialog {
+  @include transform_c(translate(0, 0));
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  @include add_prefix(box-shadow, 0 3px 9px rgba(0, 0, 0, 0.5));
+  @include add_prefix(background-clip, padding-box);
+  outline: 0;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.modal-header .close { margin-top: -2px; }
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.modal-footer .btn-group .btn + .btn { margin-left: -1px; }
+.modal-footer .btn-block + .btn-block { margin-left: 0; }
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content { @include add_prefix(box-shadow, 0 5px 15px rgba(0, 0, 0, 0.5)); }
+  .modal-sm { width: 300px; }
+}
+@media (min-width: 992px) {
+  .modal-lg { width: 900px; }
+}
