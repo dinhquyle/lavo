@@ -124,10 +124,7 @@ Link
 ------------------------------------------------------------*/
 a {
   outline: none;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  transition:0.3s;
   @include PC {
     &:hover {
       text-decoration: none;
@@ -181,9 +178,9 @@ FONT family
   width: 100%;
   opacity: 0;
   text-indent: -9999px;
-  -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   @include min-screen(768px) {
     &:hover{
@@ -216,9 +213,9 @@ body {
   }
 }
 *{
-  -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 

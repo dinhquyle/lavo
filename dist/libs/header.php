@@ -38,7 +38,9 @@
           </p>
         </div>
       </div>
-    </div>    
+    </div>
+  </div> 
+  <div class="gnav_box"> 
     <p class="hamberger"><span class="ham"> </span><span class="ber"> </span><span class="ger"> </span></p>
     <div class="layerMenu">
       <div class="inLayer">

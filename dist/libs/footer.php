@@ -65,3 +65,30 @@
 <script src="<?php echo APP_ASSETS; ?>js/lib/biggerlink.min.js"></script>
 <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
 <script src="<?php echo APP_ASSETS; ?>js/functions.min.js"></script>
+<script>
+  $(window).on('scroll load', function(){
+    if($(window).scrollTop() > 99) $("body").addClass('header-fixed');
+    else $("body").removeClass('header-fixed');
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

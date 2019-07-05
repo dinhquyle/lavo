@@ -4,9 +4,9 @@
   background: #222;
   padding: 60px 60px 20px;
   color: #a1a1a1;
-  -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   @include max-screen(1400px) {
     padding: 60px 15px 20px;
